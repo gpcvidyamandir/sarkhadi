@@ -1549,5 +1549,1236 @@
 
 <!-- ================= END SCHOOL ASSISTANT ================= -->
 
+<!-- =========================================================
+     GHANSYAM PRASAD CHOUKARYA VIDYA MANDIR
+     PROFESSIONAL FREE SCHOOL ASSISTANT
+     ========================================================= -->
+
+<style>
+/* =========================================================
+   SCHOOL ASSISTANT - COMPLETE DESIGN
+   ========================================================= */
+
+#gpSchoolAssistant,
+#gpSchoolAssistant * {
+    box-sizing: border-box;
+}
+
+#gpSchoolAssistant {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Floating Button */
+
+#gpAssistantLauncher {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999999;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 17px;
+    border-radius: 50px;
+    background: linear-gradient(135deg,#0b2a52,#174b82);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    transition: .3s ease;
+}
+
+#gpAssistantLauncher:hover {
+    transform: translateY(-3px);
+}
+
+.gpAssistantRobot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    color: #0b2a52;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.gpAssistantLauncherText {
+    text-align: left;
+}
+
+.gpAssistantLauncherText strong {
+    display: block;
+    font-size: 14px;
+}
+
+.gpAssistantLauncherText small {
+    display: block;
+    font-size: 10px;
+    opacity: .8;
+    margin-top: 2px;
+}
+
+/* Chat Window */
+
+#gpAssistantWindow {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 82px;
+    width: 370px;
+    height: 570px;
+    z-index: 999998;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.28);
+    border: 1px solid #e6eaf0;
+    animation: gpAssistantOpen .25s ease;
+}
+
+@keyframes gpAssistantOpen {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Header */
+
+#gpAssistantHeader {
+    height: 74px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    background: linear-gradient(135deg,#0b2a52,#174b82);
+}
+
+.gpAssistantBrand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gpAssistantLogo {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+}
+
+.gpAssistantTitle strong {
+    display: block;
+    font-size: 15px;
+}
+
+.gpAssistantTitle span {
+    display: block;
+    font-size: 10px;
+    margin-top: 3px;
+    opacity: .85;
+}
+
+#gpAssistantClose {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 27px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Online status */
+
+.gpAssistantOnline {
+    padding: 6px 13px;
+    background: #f5f8fc;
+    border-bottom: 1px solid #e9edf2;
+    font-size: 10px;
+    color: #228b45;
+}
+
+.gpAssistantOnline span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: #25c45a;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Messages */
+
+#gpAssistantMessages {
+    height: 355px;
+    overflow-y: auto;
+    padding: 14px;
+    background: #f5f7fa;
+    scroll-behavior: smooth;
+}
+
+.gpBotMessage,
+.gpUserMessage {
+    max-width: 87%;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    font-size: 13px;
+    line-height: 1.55;
+    word-wrap: break-word;
+}
+
+.gpBotMessage {
+    background: #fff;
+    color: #222;
+    border: 1px solid #e3e7ec;
+    border-top-left-radius: 5px;
+    margin-right: auto;
+}
+
+.gpUserMessage {
+    background: #0b2a52;
+    color: #fff;
+    margin-left: auto;
+    border-top-right-radius: 5px;
+}
+
+/* Quick buttons */
+
+#gpQuickButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.gpQuickButton {
+    border: 1px solid #d6dfe9;
+    background: #fff;
+    color: #0b2a52;
+    padding: 7px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.gpQuickButton:hover {
+    background: #0b2a52;
+    color: #fff;
+}
+
+/* Input */
+
+#gpAssistantInputArea {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    background: #fff;
+    border-top: 1px solid #e5e8ed;
+}
+
+#gpAssistantInput {
+    flex: 1;
+    height: 39px;
+    border: 1px solid #d8dee6;
+    border-radius: 22px;
+    padding: 0 14px;
+    outline: none;
+    font-size: 13px;
+}
+
+#gpAssistantInput:focus {
+    border-color: #174b82;
+}
+
+#gpAssistantSend {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #0b2a52;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* Footer */
+
+#gpAssistantFooter {
+    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid #e7eaee;
+    background: #fff;
+}
+
+.gpFooterButton {
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    color: #0b2a52;
+}
+
+/* Admission Form */
+
+.gpAdmissionForm {
+    margin-top: 8px;
+}
+
+.gpAdmissionForm label {
+    display: block;
+    margin: 7px 0 4px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.gpAdmissionForm input,
+.gpAdmissionForm select,
+.gpAdmissionForm textarea {
+    width: 100%;
+    border: 1px solid #d9dfe7;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 12px;
+    outline: none;
+    font-family: inherit;
+}
+
+.gpAdmissionForm textarea {
+    height: 55px;
+    resize: none;
+}
+
+.gpAdmissionForm input:focus,
+.gpAdmissionForm select:focus,
+.gpAdmissionForm textarea:focus {
+    border-color: #174b82;
+}
+
+.gpAdmissionSubmit {
+    width: 100%;
+    margin-top: 9px;
+    border: none;
+    border-radius: 9px;
+    padding: 10px;
+    background: #25d366;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* WhatsApp result */
+
+.gpWhatsAppButton {
+    display: inline-block;
+    margin-top: 7px;
+    padding: 9px 13px;
+    background: #25d366;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Mobile */
+
+@media (max-width:600px) {
+
+    #gpAssistantLauncher {
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .gpAssistantLauncherText {
+        display: none;
+    }
+
+    #gpAssistantWindow {
+        right: 10px;
+        bottom: 72px;
+        width: calc(100vw - 20px);
+        height: min(570px, calc(100vh - 90px));
+        border-radius: 18px;
+    }
+
+    #gpAssistantMessages {
+        height: calc(min(570px, 100vh - 90px) - 169px);
+    }
+
+    #gpAssistantFooter {
+        height: 44px;
+    }
+}
+</style>
+
+
+<div id="gpSchoolAssistant">
+
+    <!-- Floating Button -->
+
+    <button id="gpAssistantLauncher" type="button">
+
+        <div class="gpAssistantRobot">
+            🤖
+        </div>
+
+        <div class="gpAssistantLauncherText">
+            <strong>School Assistant</strong>
+            <small>Hindi • English • Hinglish</small>
+        </div>
+
+    </button>
+
+
+    <!-- Chat Window -->
+
+    <div id="gpAssistantWindow">
+
+        <div id="gpAssistantHeader">
+
+            <div class="gpAssistantBrand">
+
+                <div class="gpAssistantLogo">
+                    🏫
+                </div>
+
+                <div class="gpAssistantTitle">
+                    <strong>School Assistant</strong>
+                    <span>GPC Vidya Mandir Sarkhadi</span>
+                </div>
+
+            </div>
+
+            <button id="gpAssistantClose" type="button">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="gpAssistantOnline">
+            <span></span>
+            Online • School Information Assistant
+        </div>
+
+
+        <div id="gpAssistantMessages">
+
+            <div class="gpBotMessage">
+
+                Namaste! 👋<br><br>
+
+                <b>घनश्याम प्रसाद चौकरया विद्या मंदिर सरखड़ी</b>
+                में आपका स्वागत है। 🏫
+
+                <br><br>
+
+                मैं आपको admission, classes, fees,
+                timing, facilities, location और
+                contact से संबंधित जानकारी देने में मदद कर सकता हूँ।
+
+                <br><br>
+
+                <b>आप क्या जानना चाहते हैं?</b>
+
+                <div id="gpQuickButtons">
+
+                    <button class="gpQuickButton"
+                        onclick="gpAsk('admission')">
+                        🎓 Admission
+                    </button>
+
+                    <button class="gpQuickButton"
+                        onclick="gpAsk('classes')">
+                        📚 Classes
+                    </button>
+
+                    <button class="gpQuickButton"
+                        onclick="gpAsk('fees')">
+                        💰 Fees
+                    </button>
+
+                    <button class="gpQuickButton"
+                        onclick="gpAsk('timing')">
+                        🕐 Timing
+                    </button>
+
+                    <button class="gpQuickButton"
+                        onclick="gpAsk('location')">
+                        📍 Location
+                    </button>
+
+                    <button class="gpQuickButton"
+                        onclick="gpAsk('contact')">
+                        📞 Contact
+                    </button>
+
+                    <button class="gpQuickButton"
+                        onclick="gpAsk('facilities')">
+                        🏫 Facilities
+                    </button>
+
+                    <button class="gpQuickButton"
+                        onclick="gpShowAdmissionForm()">
+                        📝 Admission Enquiry
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="gpAssistantInputArea">
+
+            <input
+                id="gpAssistantInput"
+                type="text"
+                placeholder="Apna question likhiye..."
+                autocomplete="off"
+            >
+
+            <button id="gpAssistantSend" type="button">
+                ➤
+            </button>
+
+        </div>
+
+
+        <div id="gpAssistantFooter">
+
+            <a
+                class="gpFooterButton"
+                href="tel:7024592100">
+                📞 Call
+            </a>
+
+            <a
+                class="gpFooterButton"
+                href="https://wa.me/917024592100"
+                target="_blank">
+                💬 WhatsApp
+            </a>
+
+            <a
+                class="gpFooterButton"
+                href="https://maps.app.goo.gl/ndx15yjtNUpKsY2q7"
+                target="_blank">
+                📍 Map
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+/* =========================================================
+   SCHOOL ASSISTANT - COMPLETE JAVASCRIPT
+   ========================================================= */
+
+(function () {
+
+    /* Remove old assistant if present */
+
+    var oldAssistant =
+        document.getElementById("schoolAssistant");
+
+    if (oldAssistant) {
+        oldAssistant.remove();
+    }
+
+
+    var windowBox =
+        document.getElementById("gpAssistantWindow");
+
+    var launcher =
+        document.getElementById("gpAssistantLauncher");
+
+    var closeButton =
+        document.getElementById("gpAssistantClose");
+
+    var input =
+        document.getElementById("gpAssistantInput");
+
+    var sendButton =
+        document.getElementById("gpAssistantSend");
+
+    var messages =
+        document.getElementById("gpAssistantMessages");
+
+
+    /* Open / Close */
+
+    launcher.addEventListener("click", function () {
+
+        if (windowBox.style.display === "block") {
+
+            windowBox.style.display = "none";
+
+        } else {
+
+            windowBox.style.display = "block";
+
+            setTimeout(function () {
+                input.focus();
+            }, 150);
+
+        }
+
+    });
+
+
+    closeButton.addEventListener("click", function () {
+        windowBox.style.display = "none";
+    });
+
+
+    /* Send message */
+
+    sendButton.addEventListener("click", function () {
+        gpSendMessage();
+    });
+
+
+    input.addEventListener("keydown", function (event) {
+
+        if (event.key === "Enter") {
+            gpSendMessage();
+        }
+
+    });
+
+
+    /* Add message */
+
+    window.gpAddMessage = function (text, type) {
+
+        var message = document.createElement("div");
+
+        if (type === "user") {
+            message.className = "gpUserMessage";
+        } else {
+            message.className = "gpBotMessage";
+        }
+
+        message.innerHTML = text;
+
+        messages.appendChild(message);
+
+        messages.scrollTop = messages.scrollHeight;
+    };
+
+
+    /* Quick Questions */
+
+    window.gpAsk = function (type) {
+
+        var question = "";
+        var answer = "";
+
+
+        if (type === "admission") {
+
+            question = "Admission ke baare mein bataiye.";
+
+            answer =
+                "🎓 <b>Admission Information</b><br><br>" +
+                "हमारे विद्यालय में <b>Nursery से कक्षा 8वीं</b> तक " +
+                "प्रवेश की सुविधा उपलब्ध है।<br><br>" +
+                "Admission की वर्तमान जानकारी के लिए " +
+                "विद्यालय से संपर्क करें।<br><br>" +
+                "📞 <b>70245 92100</b><br>" +
+                "📞 <b>91318 34016</b><br><br>" +
+                "<b>📝 नीचे Admission Enquiry का option भी उपलब्ध है।</b>";
+
+        }
+
+
+        else if (type === "classes") {
+
+            question = "School mein kaun-kaun si classes hain?";
+
+            answer =
+                "📚 <b>Classes</b><br><br>" +
+                "हमारे विद्यालय में <b>Nursery से कक्षा 8वीं</b> तक " +
+                "कक्षाएँ संचालित होती हैं।<br><br>" +
+                "Hindi और English medium की सुविधा उपलब्ध है।";
+
+        }
+
+
+        else if (type === "fees") {
+
+            question = "School fees ke baare mein bataiye.";
+
+            answer =
+                "💰 <b>Fee Information</b><br><br>" +
+                "Fee structure की वर्तमान जानकारी के लिए " +
+                "कृपया विद्यालय से संपर्क करें।<br><br>" +
+                "📞 <b>70245 92100</b><br>" +
+                "📞 <b>91318 34016</b>";
+
+        }
+
+
+        else if (type === "timing") {
+
+            question = "School ki timing kya hai?";
+
+            answer =
+                "🕐 <b>School Timing</b><br><br>" +
+                "School timing की latest जानकारी के लिए " +
+                "कृपया विद्यालय से संपर्क करें।<br><br>" +
+                "📞 <b>70245 92100</b>";
+
+        }
+
+
+        else if (type === "location") {
+
+            question = "School kaha hai?";
+
+            answer =
+                "📍 <b>School Location</b><br><br>" +
+                "घनश्याम प्रसाद चौकरया विद्या मंदिर सरखड़ी<br>" +
+                "ग्राम सरखड़ी, जिला दमोह, मध्य प्रदेश।<br><br>" +
+                "नीचे <b>Map</b> button से exact location देख सकते हैं।";
+
+        }
+
+
+        else if (type === "contact") {
+
+            question = "School ka contact number kya hai?";
+
+            answer =
+                "📞 <b>Contact Us</b><br><br>" +
+                "<b>70245 92100</b><br>" +
+                "<b>91318 34016</b><br><br>" +
+                "आप नीचे Call या WhatsApp button का उपयोग कर सकते हैं।";
+
+        }
+
+
+        else if (type === "facilities") {
+
+            question = "School mein kya facilities hain?";
+
+            answer =
+                "🏫 <b>School Facilities</b><br><br>" +
+                "हमारा विद्यालय विद्यार्थियों के लिए " +
+                बेहतर शिक्षा और अच्छा learning environment " +
+                "प्रदान करने के लिए कार्य करता है।<br><br>" +
+                "Facilities की विस्तृत जानकारी के लिए " +
+                "विद्यालय से संपर्क करें।";
+
+        }
+
+
+        gpAddMessage(question, "user");
+
+        setTimeout(function () {
+            gpAddMessage(answer, "bot");
+        }, 350);
+
+    };
+
+
+    /* Admission Form */
+
+    window.gpShowAdmissionForm = function () {
+
+        gpAddMessage(
+            "📝 <b>Admission Enquiry Form</b><br><br>" +
+            "कृपया नीचे अपनी जानकारी भरें।",
+            "bot"
+        );
+
+
+        var formMessage =
+            document.createElement("div");
+
+        formMessage.className = "gpBotMessage";
+
+
+        formMessage.innerHTML =
+
+            '<div class="gpAdmissionForm">' +
+
+            '<label>Student Name *</label>' +
+            '<input id="gpStudentName" type="text" placeholder="बच्चे का नाम">' +
+
+            '<label>Parent Name *</label>' +
+            '<input id="gpParentName" type="text" placeholder="अभिभावक का नाम">' +
+
+            '<label>Class *</label>' +
+            '<select id="gpStudentClass">' +
+                '<option value="">कक्षा चुनें</option>' +
+                '<option>Nursery</option>' +
+                '<option>LKG</option>' +
+                '<option>UKG</option>' +
+                '<option>Class 1</option>' +
+                '<option>Class 2</option>' +
+                '<option>Class 3</option>' +
+                '<option>Class 4</option>' +
+                '<option>Class 5</option>' +
+                '<option>Class 6</option>' +
+                '<option>Class 7</option>' +
+                '<option>Class 8</option>' +
+            '</select>' +
+
+            '<label>Mobile Number *</label>' +
+            '<input id="gpParentMobile" type="tel" maxlength="10" placeholder="10 digit mobile number">' +
+
+            '<label>Message</label>' +
+            '<textarea id="gpParentMessage" placeholder="कोई अन्य जानकारी..."></textarea>' +
+
+            '<button class="gpAdmissionSubmit" onclick="gpSubmitAdmission()">' +
+            '💬 WhatsApp पर Enquiry भेजें' +
+            '</button>' +
+
+            '</div>';
+
+
+        messages.appendChild(formMessage);
+
+        messages.scrollTop = messages.scrollHeight;
+
+    };
+/* Submit Admission */
+
+window.gpSubmitAdmission = function () {
+
+    var student =
+        document.getElementById("gpStudentName").value.trim();
+
+    var parent =
+        document.getElementById("gpParentName").value.trim();
+
+    var studentClass =
+        document.getElementById("gpStudentClass").value;
+
+    var mobile =
+        document.getElementById("gpParentMobile").value.trim();
+
+    var extraMessage =
+        document.getElementById("gpParentMessage").value.trim();
+
+
+    if (!student || !parent || !studentClass || !mobile) {
+
+        gpAddMessage(
+            "⚠️ कृपया Student Name, Parent Name, Class और Mobile Number भरें।",
+            "bot"
+        );
+
+        return;
+    }
+
+
+    if (!/^[6-9][0-9]{9}$/.test(mobile)) {
+
+        gpAddMessage(
+            "⚠️ कृपया सही 10 digit mobile number डालें।",
+            "bot"
+        );
+
+        return;
+    }
+
+
+    var whatsappText =
+        "🏫 *GPC Vidya Mandir Sarkhadi*%0A" +
+        "*Admission Enquiry*%0A%0A" +
+
+        "*Student Name:* " +
+        encodeURIComponent(student) +
+        "%0A" +
+
+        "*Parent Name:* " +
+        encodeURIComponent(parent) +
+        "%0A" +
+
+        "*Class:* " +
+        encodeURIComponent(studentClass) +
+        "%0A" +
+
+        "*Mobile:* " +
+        encodeURIComponent(mobile) +
+        "%0A" +
+
+        "*Message:* " +
+        encodeURIComponent(
+            extraMessage || "No additional message"
+        );
+
+
+    var whatsappURL =
+        "https://wa.me/917024592100?text=" +
+        whatsappText;
+
+
+    gpAddMessage(
+
+        "✅ <b>Admission Enquiry तैयार है!</b><br><br>" +
+
+        "👦 Student: <b>" +
+        student +
+        "</b><br>" +
+
+        "👨 Parent: <b>" +
+        parent +
+        "</b><br>" +
+
+        "📚 Class: <b>" +
+        studentClass +
+        "</b><br>" +
+
+        "📱 Mobile: <b>" +
+        mobile +
+        "</b><br><br>" +
+
+        '<a class="gpWhatsAppButton" href="' +
+        whatsappURL +
+        '" target="_blank">' +
+        '💬 WhatsApp पर Enquiry भेजें' +
+        '</a>',
+
+        "bot"
+    );
+
+};
+
+
+/* Normal Text Questions */
+
+window.gpSendMessage = function () {
+
+    var text = input.value.trim();
+
+    if (!text) {
+        return;
+    }
+
+
+    gpAddMessage(text, "user");
+
+    input.value = "";
+
+
+    setTimeout(function () {
+
+        var answer =
+            gpGetAnswer(text);
+
+        gpAddMessage(answer, "bot");
+
+    }, 350);
+
+};
+
+
+/* Smart Keyword Answer Engine */
+
+window.gpGetAnswer = function (question) {
+
+    var q =
+        question
+        .toLowerCase()
+        .trim();
+
+
+    /* Greeting */
+
+    if (
+        q.includes("hello") ||
+        q.includes("hi") ||
+        q.includes("hii") ||
+        q.includes("hey") ||
+        q.includes("namaste") ||
+        q.includes("नमस्ते")
+    ) {
+
+        return (
+            "Namaste! 👋<br><br>" +
+            "घनश्याम प्रसाद चौकरया विद्या मंदिर सरखड़ी " +
+            "में आपका स्वागत है। 🏫<br><br>" +
+            "मैं admission, classes, fees, timing, " +
+            "location और contact में आपकी मदद कर सकता हूँ।"
+        );
+
+    }
+
+
+    /* Admission */
+
+    if (
+        q.includes("admission") ||
+        q.includes("admission kab") ||
+        q.includes("admission lena") ||
+        q.includes("admission chahiye") ||
+        q.includes("dakhila") ||
+        q.includes("प्रवेश") ||
+        q.includes("दाखिला")
+    ) {
+
+        return (
+            "🎓 <b>Admission</b><br><br>" +
+            "हमारे विद्यालय में <b>Nursery से कक्षा 8वीं</b> तक " +
+            "प्रवेश की सुविधा उपलब्ध है।<br><br>" +
+            "आप नीचे <b>Admission Enquiry</b> option से " +
+            "अपनी enquiry WhatsApp पर भेज सकते हैं।"
+        );
+
+    }
+
+
+    /* Classes */
+
+    if (
+        q.includes("class") ||
+        q.includes("classes") ||
+        q.includes("nursery") ||
+        q.includes("ukg") ||
+        q.includes("lkg") ||
+        q.includes("कक्षा") ||
+        q.includes("कौन सी क्लास")
+    ) {
+
+        return (
+            "📚 <b>Classes</b><br><br>" +
+            "विद्यालय में <b>Nursery से Class 8</b> तक " +
+            "कक्षाएँ संचालित होती हैं।<br><br>" +
+            "Hindi और English medium की सुविधा उपलब्ध है।"
+        );
+
+    }
+
+
+    /* Fees */
+
+    if (
+        q.includes("fee") ||
+        q.includes("fees") ||
+        q.includes("फीस") ||
+        q.includes("शुल्क") ||
+        q.includes("kitni fees") ||
+        q.includes("fees kitni")
+    ) {
+
+        return (
+            "💰 <b>Fee Information</b><br><br>" +
+            "Fee structure की current जानकारी के लिए " +
+            "विद्यालय से संपर्क करें।<br><br>" +
+            "📞 <b>70245 92100</b><br>" +
+            "📞 <b>91318 34016</b>"
+        );
+
+    }
+
+
+    /* Location */
+
+    if (
+        q.includes("location") ||
+        q.includes("address") ||
+        q.includes("where") ||
+        q.includes("kaha") ||
+        q.includes("kahan") ||
+        q.includes("kahaan") ||
+        q.includes("लोकेशन") ||
+        q.includes("पता") ||
+        q.includes("कहाँ") ||
+        q.includes("कहा है")
+    ) {
+
+        return (
+            "📍 <b>School Location</b><br><br>" +
+            "घनश्याम प्रसाद चौकरया विद्या मंदिर सरखड़ी<br>" +
+            "ग्राम सरखड़ी, जिला दमोह, मध्य प्रदेश।<br><br>" +
+            "📍 नीचे <b>Map</b> button से location देख सकते हैं।"
+        );
+
+    }
+
+
+    /* Contact */
+
+    if (
+        q.includes("contact") ||
+        q.includes("phone") ||
+        q.includes("mobile") ||
+        q.includes("number") ||
+        q.includes("call") ||
+        q.includes("संपर्क") ||
+        q.includes("नंबर") ||
+        q.includes("फोन")
+    ) {
+
+        return (
+            "📞 <b>School Contact</b><br><br>" +
+            "<b>70245 92100</b><br>" +
+            "<b>91318 34016</b><br><br>" +
+            "आप नीचे दिए गए Call button से सीधे contact कर सकते हैं।"
+        );
+
+    }
+
+
+    /* Timing */
+
+    if (
+        q.includes("timing") ||
+        q.includes("school time") ||
+        q.includes("school kab") ||
+        q.includes("time kya") ||
+        q.includes("समय") ||
+        q.includes("टाइम")
+    ) {
+
+        return (
+            "🕐 <b>School Timing</b><br><br>" +
+            "School timing की latest जानकारी के लिए " +
+            "विद्यालय से संपर्क करें।<br><br>" +
+            "📞 70245 92100"
+        );
+
+    }
+
+
+    /* Facilities */
+
+    if (
+        q.includes("facility") ||
+        q.includes("facilities") ||
+        q.includes("suvidha") ||
+        q.includes("सुविधा") ||
+        q.includes("सुविधाएँ")
+    ) {
+
+        return (
+            "🏫 <b>School Facilities</b><br><br>" +
+            "विद्यालय विद्यार्थियों के लिए बेहतर शिक्षा " +
+            "और अच्छा learning environment प्रदान करने के लिए " +
+            "कार्य करता है।<br><br>" +
+            "Facilities की विस्तृत जानकारी के लिए " +
+            "विद्यालय से संपर्क करें।"
+        );
+
+    }
+
+
+    /* Medium */
+
+    if (
+        q.includes("medium") ||
+        q.includes("hindi medium") ||
+        q.includes("english medium") ||
+        q.includes("माध्यम")
+    ) {
+
+        return (
+            "📚 <b>Medium</b><br><br>" +
+            "विद्यालय में <b>Hindi और English medium</b> " +
+            "की सुविधा उपलब्ध है।"
+        );
+
+    }
+
+
+    /* School Name */
+
+    if (
+        q.includes("school name") ||
+        q.includes("school ka naam") ||
+        q.includes("विद्यालय का नाम")
+    ) {
+
+        return (
+            "🏫 हमारे विद्यालय का नाम है:<br><br>" +
+            "<b>घनश्याम प्रसाद चौकरया विद्या मंदिर सरखड़ी</b>"
+        );
+
+    }
+
+
+    /* WhatsApp */
+
+    if (
+        q.includes("whatsapp") ||
+        q.includes("व्हाट्सएप")
+    ) {
+
+        return (
+            "💬 आप नीचे दिए गए <b>WhatsApp</b> button " +
+            "से विद्यालय से सीधे संपर्क कर सकते हैं।"
+        );
+
+    }
+
+
+    /* Thanks */
+
+    if (
+        q.includes("thank") ||
+        q.includes("thanks") ||
+        q.includes("धन्यवाद")
+    ) {
+
+        return (
+            "😊 आपका स्वागत है!<br><br>" +
+            "अगर आपको school से संबंधित और कोई जानकारी चाहिए " +
+            "तो बेझिझक पूछिए।"
+        );
+
+    }
+
+
+    /* Default */
+
+    return (
+        "😊 मैं आपकी मदद करने की कोशिश कर सकता हूँ।<br><br>" +
+
+        "आप इन विषयों के बारे में पूछ सकते हैं:<br><br>" +
+
+        "🎓 Admission<br>" +
+        "📚 Classes<br>" +
+        "💰 Fees<br>" +
+        "🕐 Timing<br>" +
+        "📍 Location<br>" +
+        "🏫 Facilities<br>" +
+        "📞 Contact<br><br>" +
+
+        "या सीधे <b>Admission Enquiry</b> भरकर " +
+        "WhatsApp पर enquiry भेज सकते हैं।"
+    );
+
+};
+
+
+/* =========================================================
+   END SCHOOL ASSISTANT JAVASCRIPT
+   ========================================================= */
+
 </body>
 </html>
