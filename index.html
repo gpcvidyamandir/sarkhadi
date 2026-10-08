@@ -1476,50 +1476,78 @@
 <!-- ================= JAVASCRIPT ================= -->
 <script src="announcement-data.js"></script>
 <script src="script.js"></script>
+<!-- ================= SCHOOL ASSISTANT ================= -->
 
-</body>
-</html>
-<!-- ================= ADVERTISEMENT BANNER ================= -->
+<div id="schoolAssistant">
 
-<div class="notice-banner" data-notice-banner>
+  <button id="assistantButton" onclick="toggleAssistant()">
+    🤖
+    <span>School Assistant</span>
+  </button>
 
-  <div class="container notice-content">
+  <div id="assistantBox">
 
-    <div class="notice-icon">
-      📢
+    <div class="assistantHeader">
+      <div>
+        <strong>School Assistant</strong>
+        <small>Hindi • English • Hinglish</small>
+      </div>
+
+      <button onclick="toggleAssistant()">×</button>
     </div>
 
-    <div class="notice-message">
+    <div id="assistantMessages">
 
-      <strong data-notice-title>
-        ADMISSION OPEN 2026–27
-      </strong>
+      <div class="assistantMessage bot">
+        Namaste! 👋<br><br>
+        Main aapko school ke admission, classes, timing,
+        facilities, location aur contact information ke
+        baare mein help kar sakta hoon.
+        <br><br>
+        <b>Aap kya jaanna chahenge?</b>
+      </div>
 
-      <span data-notice-text>
-        अपने बच्चे के उज्ज्वल भविष्य की मजबूत नींव के लिए
-        आज ही विद्यालय से संपर्क करें।
-      </span>
+      <div class="assistantQuickButtons">
+        <button onclick="askSchool('admission')">🎓 Admission</button>
+        <button onclick="askSchool('classes')">📚 Classes</button>
+        <button onclick="askSchool('timing')">🕐 Timing</button>
+        <button onclick="askSchool('location')">📍 Location</button>
+        <button onclick="askSchool('contact')">📞 Contact</button>
+        <button onclick="askSchool('facilities')">🏫 Facilities</button>
+      </div>
 
     </div>
 
-    <a
-      href="admissions.html"
-      class="notice-button"
-      data-notice-button>
+    <div class="assistantInputArea">
 
-      Admission Details →
+      <input
+        type="text"
+        id="assistantInput"
+        placeholder="Type your question..."
+        onkeydown="if(event.key==='Enter') sendAssistantMessage()"
+      >
 
-    </a>
+      <button onclick="sendAssistantMessage()">➤</button>
 
-    <button
-      class="notice-close"
-      data-close-notice
-      aria-label="Close">
+    </div>
 
-      ×
+    <div class="assistantFooter">
+      <a href="tel:7024592100">📞 Call</a>
 
-    </button>
+      <a href="https://wa.me/917024592100" target="_blank">
+        💬 WhatsApp
+      </a>
+
+      <a href="https://maps.app.goo.gl/ndx15yjtNUpKsY2q7" target="_blank">
+        📍 Map
+      </a>
+    </div>
 
   </div>
 
 </div>
+
+<!-- ================= END SCHOOL ASSISTANT ================= -->
+
+</body>
+</html>
