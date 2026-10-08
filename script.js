@@ -342,3 +342,353 @@ function closeAnnouncement() {
     }
 
 }
+/* =====================================================
+   SCHOOL ASSISTANT - CHATBOT LOGIC
+   ===================================================== */
+
+function toggleAssistant() {
+
+    const box = document.getElementById("assistantBox");
+
+    if (box.style.display === "block") {
+        box.style.display = "none";
+    } else {
+        box.style.display = "block";
+
+        setTimeout(() => {
+            document.getElementById("assistantInput").focus();
+        }, 100);
+    }
+}
+
+
+/* -----------------------------------------------------
+   ADD MESSAGE
+----------------------------------------------------- */
+
+function addAssistantMessage(message, type) {
+
+    const messages = document.getElementById("assistantMessages");
+
+    const div = document.createElement("div");
+
+    div.className = "assistantMessage " + type;
+
+    div.innerHTML = message;
+
+    messages.appendChild(div);
+
+    messages.scrollTop = messages.scrollHeight;
+}
+
+
+/* -----------------------------------------------------
+   QUICK BUTTON QUESTIONS
+----------------------------------------------------- */
+
+function askSchool(type) {
+
+    let question = "";
+    let answer = "";
+
+    if (type === "admission") {
+
+        question = "Admission ke baare mein bataiye.";
+
+        answer =
+            "🎓 <b>Admission Information</b><br><br>" +
+            "हमारे विद्यालय में <b>Nursery से कक्षा 8वीं</b> तक " +
+            "अध्ययन की सुविधा उपलब्ध है।<br><br>" +
+            "Admission से संबंधित जानकारी के लिए विद्यालय से " +
+            "सीधे संपर्क करें।<br><br>" +
+            "📞 <b>70245 92100</b><br>" +
+            "📞 <b>91318 34016</b>";
+
+    }
+
+    else if (type === "classes") {
+
+        question = "School mein kaun-kaun si classes hain?";
+
+        answer =
+            "📚 <b>Classes</b><br><br>" +
+            "हमारे विद्यालय में <b>Nursery से कक्षा 8वीं</b> तक " +
+            "कक्षाएँ संचालित होती हैं।<br><br>" +
+            "विद्यालय में Hindi और English medium की सुविधा उपलब्ध है।";
+
+    }
+
+    else if (type === "timing") {
+
+        question = "School ki timing kya hai?";
+
+        answer =
+            "🕐 <b>School Timing</b><br><br>" +
+            "School timing की नवीनतम जानकारी के लिए " +
+            "कृपया विद्यालय से संपर्क करें।<br><br>" +
+            "📞 70245 92100";
+
+    }
+
+    else if (type === "location") {
+
+        question = "School kaha hai?";
+
+        answer =
+            "📍 <b>School Location</b><br><br>" +
+            "घनश्याम प्रसाद चौकरया विद्या मंदिर सरखड़ी<br>" +
+            "ग्राम सरखड़ी, जिला दमोह, मध्य प्रदेश<br><br>" +
+            "नीचे <b>Map</b> button से school की location देख सकते हैं।";
+
+    }
+
+    else if (type === "contact") {
+
+        question = "School ka contact number kya hai?";
+
+        answer =
+            "📞 <b>Contact Us</b><br><br>" +
+            "70245 92100<br>" +
+            "91318 34016<br><br>" +
+            "आप नीचे दिए गए <b>Call</b> या <b>WhatsApp</b> button का भी उपयोग कर सकते हैं।";
+
+    }
+
+    else if (type === "facilities") {
+
+        question = "School mein kya facilities hain?";
+
+        answer =
+            "🏫 <b>School Facilities</b><br><br>" +
+            "हमारा विद्यालय विद्यार्थियों को बेहतर शिक्षा " +
+            "और learning environment प्रदान करने के लिए " +
+            "कार्य करता है।<br><br>" +
+            "Facilities की विस्तृत जानकारी के लिए school से संपर्क करें।";
+
+    }
+
+    addAssistantMessage(question, "user");
+
+    setTimeout(function () {
+
+        addAssistantMessage(answer, "bot");
+
+    }, 300);
+}
+
+
+/* -----------------------------------------------------
+   TEXT QUESTION
+----------------------------------------------------- */
+
+function sendAssistantMessage() {
+
+    const input = document.getElementById("assistantInput");
+
+    const question = input.value.trim();
+
+    if (question === "") {
+        return;
+    }
+
+    addAssistantMessage(question, "user");
+
+    input.value = "";
+
+    setTimeout(function () {
+
+        const answer = getSchoolAnswer(question);
+
+        addAssistantMessage(answer, "bot");
+
+    }, 400);
+}
+
+
+/* -----------------------------------------------------
+   SCHOOL ANSWER ENGINE
+----------------------------------------------------- */
+
+function getSchoolAnswer(question) {
+
+    const q = question.toLowerCase();
+
+
+    /* Admission */
+
+    if (
+        q.includes("admission") ||
+        q.includes("admission kab") ||
+        q.includes("प्रवेश") ||
+        q.includes("दाखिला")
+    ) {
+
+        return (
+            "🎓 <b>Admission</b><br><br>" +
+            "हमारे विद्यालय में <b>Nursery से कक्षा 8वीं</b> तक " +
+            "प्रवेश की सुविधा उपलब्ध है।<br><br>" +
+            "Admission की वर्तमान जानकारी के लिए " +
+            "विद्यालय से संपर्क करें।"
+        );
+
+    }
+
+
+    /* Classes */
+
+    if (
+        q.includes("class") ||
+        q.includes("classes") ||
+        q.includes("कक्षा") ||
+        q.includes("कौन सी क्लास")
+    ) {
+
+        return (
+            "📚 <b>Classes</b><br><br>" +
+            "हमारे विद्यालय में <b>Nursery से कक्षा 8वीं</b> तक " +
+            "कक्षाएँ संचालित होती हैं।"
+        );
+
+    }
+
+
+    /* School */
+
+    if (
+        q.includes("school") ||
+        q.includes("विद्यालय") ||
+        q.includes("स्कूल")
+    ) {
+
+        return (
+            "🏫 <b>घनश्याम प्रसाद चौकरया विद्या मंदिर सरखड़ी</b><br><br>" +
+            "विद्यालय Nursery से कक्षा 8वीं तक शिक्षा प्रदान करता है।"
+        );
+
+    }
+
+
+    /* Location */
+
+    if (
+        q.includes("location") ||
+        q.includes("address") ||
+        q.includes("kaha") ||
+        q.includes("कहाँ") ||
+        q.includes("कहा") ||
+        q.includes("पता") ||
+        q.includes("लोकेशन")
+    ) {
+
+        return (
+            "📍 <b>School Address</b><br><br>" +
+            "ग्राम सरखड़ी, जिला दमोह, मध्य प्रदेश।<br><br>" +
+            "📍 School की exact location देखने के लिए नीचे दिए गए Map button का उपयोग करें।"
+        );
+
+    }
+
+
+    /* Contact */
+
+    if (
+        q.includes("contact") ||
+        q.includes("number") ||
+        q.includes("phone") ||
+        q.includes("mobile") ||
+        q.includes("संपर्क") ||
+        q.includes("नंबर")
+    ) {
+
+        return (
+            "📞 <b>Contact</b><br><br>" +
+            "70245 92100<br>" +
+            "91318 34016"
+        );
+
+    }
+
+
+    /* Timing */
+
+    if (
+        q.includes("timing") ||
+        q.includes("time") ||
+        q.includes("समय") ||
+        q.includes("टाइम")
+    ) {
+
+        return (
+            "🕐 <b>School Timing</b><br><br>" +
+            "School timing की latest जानकारी के लिए " +
+            "कृपया विद्यालय से संपर्क करें।<br><br>" +
+            "📞 70245 92100"
+        );
+
+    }
+
+
+    /* Fees */
+
+    if (
+        q.includes("fee") ||
+        q.includes("fees") ||
+        q.includes("फीस") ||
+        q.includes("शुल्क")
+    ) {
+
+        return (
+            "💰 <b>Fee Information</b><br><br>" +
+            "Fee structure की वर्तमान जानकारी के लिए " +
+            "कृपया विद्यालय से संपर्क करें।<br><br>" +
+            "📞 70245 92100"
+        );
+
+    }
+
+
+    /* WhatsApp */
+
+    if (
+        q.includes("whatsapp") ||
+        q.includes("व्हाट्सएप")
+    ) {
+
+        return (
+            "💬 आप नीचे दिए गए <b>WhatsApp</b> button पर click करके " +
+            "विद्यालय से सीधे WhatsApp पर संपर्क कर सकते हैं।"
+        );
+
+    }
+
+
+    /* Greeting */
+
+    if (
+        q.includes("hello") ||
+        q.includes("hi") ||
+        q.includes("hii") ||
+        q.includes("namaste") ||
+        q.includes("नमस्ते")
+    ) {
+
+        return (
+            "Namaste! 👋<br><br>" +
+            "घनश्याम प्रसाद चौकरया विद्या मंदिर सरखड़ी में आपका स्वागत है।<br><br>" +
+            "मैं admission, classes, timing, location और contact " +
+            "से संबंधित जानकारी देने में आपकी मदद कर सकता हूँ।"
+        );
+
+    }
+
+
+    /* Default */
+
+    return (
+        "😊 मुझे इस सवाल की पूरी जानकारी अभी उपलब्ध नहीं है।<br><br>" +
+        "आप <b>Admission, Classes, Timing, Location, Fees या Contact</b> " +
+        "के बारे में पूछ सकते हैं।<br><br>" +
+        "📞 जरूरत होने पर विद्यालय से सीधे संपर्क करें:<br>" +
+        "<b>70245 92100</b>"
+    );
+}
