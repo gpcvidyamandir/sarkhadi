@@ -874,3 +874,212 @@ footer li{
         box-sizing: border-box;
     }
 }
+/* =====================================================
+   SCHOOL ASSISTANT - FREE CHATBOT
+   ===================================================== */
+
+#schoolAssistant {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99999;
+    font-family: Arial, sans-serif;
+}
+
+/* Floating Button */
+
+#assistantButton {
+    border: none;
+    border-radius: 50px;
+    padding: 13px 20px;
+    background: #0b2a52;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    transition: 0.3s ease;
+}
+
+#assistantButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.30);
+}
+
+#assistantButton span {
+    white-space: nowrap;
+}
+
+/* Chat Box */
+
+#assistantBox {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 65px;
+    width: 350px;
+    height: 500px;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.28);
+    border: 1px solid #e5e5e5;
+}
+
+/* Header */
+
+.assistantHeader {
+    background: linear-gradient(135deg, #0b2a52, #174b82);
+    color: white;
+    padding: 15px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.assistantHeader strong {
+    display: block;
+    font-size: 16px;
+}
+
+.assistantHeader small {
+    display: block;
+    margin-top: 3px;
+    opacity: 0.85;
+    font-size: 11px;
+}
+
+.assistantHeader button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Messages */
+
+#assistantMessages {
+    height: 350px;
+    overflow-y: auto;
+    padding: 15px;
+    background: #f6f8fb;
+}
+
+.assistantMessage {
+    max-width: 85%;
+    padding: 11px 13px;
+    border-radius: 13px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.assistantMessage.bot {
+    background: white;
+    color: #222;
+    border: 1px solid #e5e7eb;
+}
+
+/* Quick Buttons */
+
+.assistantQuickButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.assistantQuickButtons button {
+    border: 1px solid #d7e0eb;
+    background: white;
+    color: #0b2a52;
+    border-radius: 20px;
+    padding: 7px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.assistantQuickButtons button:hover {
+    background: #0b2a52;
+    color: white;
+}
+
+/* Input */
+
+.assistantInputArea {
+    display: flex;
+    gap: 7px;
+    padding: 10px;
+    border-top: 1px solid #e5e5e5;
+    background: white;
+}
+
+#assistantInput {
+    flex: 1;
+    border: 1px solid #d8dce2;
+    border-radius: 22px;
+    padding: 10px 13px;
+    outline: none;
+    font-size: 13px;
+}
+
+#assistantInput:focus {
+    border-color: #174b82;
+}
+
+.assistantInputArea button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #0b2a52;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* Footer */
+
+.assistantFooter {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    background: #ffffff;
+    border-top: 1px solid #eeeeee;
+}
+
+.assistantFooter a {
+    text-decoration: none;
+    color: #0b2a52;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    #schoolAssistant {
+        right: 12px;
+        bottom: 12px;
+    }
+
+    #assistantBox {
+        width: calc(100vw - 24px);
+        right: 0;
+        height: 500px;
+    }
+
+    #assistantMessages {
+        height: 350px;
+    }
+
+    #assistantButton {
+        padding: 12px 16px;
+    }
+
+}
